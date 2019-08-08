@@ -1,0 +1,40 @@
+/ bootstrap template
+- database
+- login
+- authentication
+- csrf
+- forms
+- api / jwt
+---------------------------------------------------------------
+
+Applied Features:
+-----------------
+* Flask Debugtoolbar
+    * https://flask-debugtoolbar.readthedocs.io/en/latest/
+* Environs
+    * https://github.com/sloria/environs
+
+
+
+
+* Flask Login
+    * https://flask-login.readthedocs.io/en/latest/
+* Flask WTF (CSRF)
+    * https://flask-wtf.readthedocs.io/en/stable/
+* Flask webpack
+    * https://github.com/nickjj/flask-webpack
+* Flask Migrate
+    * https://flask-migrate.readthedocs.io/en/latest/
+* Flask Caching
+    * https://pythonhosted.org/Flask-Caching/
+* Flask SQLAlchemy
+    * https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+* Flask Bcrypt
+    * https://flask-bcrypt.readthedocs.io/en/latest/
+* Click (for management scripting)
+    * https://palletsprojects.com/p/click/
+* Pytest
+    * https://pytest.org/en/latest/
+* -- Future Roadmap --
+* Docker
+    * google.com
