@@ -1,0 +1,1 @@
+1. [Fixed] On post edit blog, 'title already exists' - due to postform unique validation

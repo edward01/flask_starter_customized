@@ -60,8 +60,8 @@ def add():
 @login_required
 def edit(post_id):
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
-    form = PostForm()
-    post = Post.get_by_id(post_id)
+    form = PostForm(record_id=post_id)
+    post = Post.query.get_or_404(post_id)
     if request.method == "POST":
         if form.validate_on_submit():
             post.update(
@@ -78,14 +78,14 @@ def edit(post_id):
 @blueprint.route("/<int:post_id>/view")
 def view(post_id):
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
-    post = Post.get_by_id(post_id)
+    post = Post.query.get_or_404(post_id)
     return render_template("posts/view.html", post=post)
 
 
 @blueprint.route("/<int:post_id>/delete")
 def delete(post_id):
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
-    post = Post.get_by_id(post_id)
+    post = Post.query.get_or_404(post_id)
     post.delete()
     flash("Blog deleted", "success")
     return redirect(url_for(".index"))
