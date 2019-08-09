@@ -28,17 +28,21 @@ To clarify:
 1. how to add js/css assets in flask webpack
 =======================================================================
 
+---------------------
+* TODO
+---------------------
 / bootstrap template
 / database (postgre)
 / authentication
 / login
 / wtforms  (STUDY FURTHER: re: validations, form setup)
 
+- deployment to heroku
+- api / jwt (STUDY FURTHER)
+
 - management scripting (to generate dummy data)
 - pytest    (STUDY FURTHER)
-- deployment to heroku
 - docker deployment
-- api / jwt (STUDY FURTHER)
 
 - Create Utility scripts
 - how to Caching

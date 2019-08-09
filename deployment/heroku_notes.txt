@@ -1,0 +1,13 @@
+1. $ heroku login
+    $ heroku apps:create flask-edblog
+    $ git remote -v
+2. Switch to Postgre DB
+    $ heroku addons:add heroku-postgresql:hobby-dev
+3. Logging to stdout
+    -
+4. Create Procfile
+    web: flask db upgrade; flask translate compile; gunicorn microblog:app
+5. Set Heroku configs environments
+    $ heroku config:set FLASK_APP=wsgi.py
+6. Push changes to heroku
+    $ git push heroku deploy:master
