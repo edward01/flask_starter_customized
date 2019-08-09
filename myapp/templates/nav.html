@@ -6,8 +6,8 @@
         <li class="nav-item {% if request.endpoint == 'public.about' %}active{% endif %}">
             <a class="nav-link" href="{{ url_for('public.about') }}">About</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Blogs</a>
+        <li class="nav-item {% if 'posts.' in request.endpoint %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('posts.index') }}">Blogs</a>
         </li>
         <!-- <li class="nav-item">
             <a class="nav-link" href="#">Welcome User</a>

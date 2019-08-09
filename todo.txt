@@ -25,7 +25,7 @@ Extra Features:
 
 To clarify:
 -------------
-1. how to add js/css assets
+1. how to add js/css assets in flask webpack
 =======================================================================
 
 / bootstrap template
@@ -68,9 +68,9 @@ Applied Features:
     * https://pythonhosted.org/Flask-Caching/
 * Flask webpack
     * https://github.com/nickjj/flask-webpack
-
 * Pytest
     * https://pytest.org/en/latest/
+
 * -- Future Roadmap --
 * Docker
     * google.com

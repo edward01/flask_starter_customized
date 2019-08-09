@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block page_title %}My Blogs{% endblock %}
+
+{% block content %}
+<div class="container m-5">
+    <div class="row">
+        <div class="col-lg-9 border-right">
+            <h2><i class="fa fa-code"></i> My Blogs</h2>
+
+            {% for post in posts %}
+            <div class="card mt-4 border-info">
+                <div class="card-header">
+                    {{ post.title }}
+                </div>
+                <div class="card-body">
+                    <p>
+                        {{ post.body }}
+                    </p>
+                    <a href="{{ url_for('.view', post_id=post.id) }}" class="card-link">View</a>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('.edit', post_id=post.id) }}" class="card-link">Edit</a>
+                    <a href="{{ url_for('.delete', post_id=post.id) }}" class="card-link text-danger">Delete</a>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-muted text-right">
+                    {{ post.timestamp }}
+                </div>
+            </div>
+            {% else %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <p class="card-text">
+                        No blog yet. Create one now.
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-3 text-center">
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for('.add') }}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Create new blog</a>
+            {% endif %}
+        </div>
+    </div><!-- /.row -->
+</div>
+{% endblock %}

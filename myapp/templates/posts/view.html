@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block page_title %}View Blog{% endblock %}
+
+{% block content %}
+<div class="container m-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card bg-light mb-3">
+                <div class="card-header">
+                    View Blog
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p>
+                        {{ post.body }}
+                    </p>
+                </div>
+            </div>
+            <a href="{{ url_for('.index') }}" class="btn btn-secondary">Back</a>
+        </div>
+    </div><!-- /.row -->
+</div>
+{% endblock %}

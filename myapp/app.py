@@ -5,7 +5,7 @@ import sys
 
 from flask import Flask, render_template
 
-from myapp.extensions import (
+from .extensions import (
     debug_toolbar,
     db,
     migrate,
@@ -15,10 +15,10 @@ from myapp.extensions import (
 #     cache,
 #     webpack,
 )
-from myapp import (
-    public,
-    users,
-    #commands
+from . import public, users #, commands
+#-- Custom blueprints
+from . import (
+    posts
 )
 
 
@@ -55,7 +55,8 @@ def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(users.views.blueprint)
-    # app.register_blueprint(user.views.blueprint)
+    #-- Custom blueprints
+    app.register_blueprint(posts.views.blueprint)
     return None
 
 
@@ -78,7 +79,10 @@ def register_shellcontext(app):
 
     def shell_context():
         """Shell context objects."""
-        return {"db": db, "User": user.models.User}
+        context_vars = {"db": db, "User": users.models.User}
+        #-- Custom blueprints
+        context_vars['Post'] = posts.models.Post
+        return context_vars
 
     app.shell_context_processor(shell_context)
 
