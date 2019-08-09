@@ -13,3 +13,5 @@
     $ git push heroku deploy:master
     -- or --
     $ git push heroku master
+7. To check for logs:
+    $ heroku logs --tail
