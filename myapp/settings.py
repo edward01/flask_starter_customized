@@ -9,8 +9,10 @@ environment variables.
 import os
 from environs import Env
 
-APP_TITLE = 'My App'
 APP_NAME = 'myapp'
+APP_TITLE = 'My App'
+FAVICON = 'http://thefavicongallery.com/s/t/stanleysy.com.ico'
+APP_LOGO = ''
 
 env = Env()
 env.read_env()
