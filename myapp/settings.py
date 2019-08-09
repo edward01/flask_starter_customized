@@ -16,10 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ENV = env.str("FLASK_ENV", default="production")
 DEBUG = ENV == "development"
-if env.str("DATABASE_URL") == 'db.sqlite3':
-    SQLALCHEMY_DATABASE_URI = os.path.join(BASE_DIR, env.str("DATABASE_URL"))
-else:
-    SQLALCHEMY_DATABASE_URI = env.str("DATABASE_URL")
+SQLALCHEMY_DATABASE_URI = env.str("DATABASE_URL")
 SECRET_KEY = env.str("SECRET_KEY")
 BCRYPT_LOG_ROUNDS = env.int("BCRYPT_LOG_ROUNDS", default=13)
 DEBUG_TB_ENABLED = DEBUG

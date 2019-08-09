@@ -1,10 +1,48 @@
+Project: A blog application
+
+To start:
+----------
+$ export FLASK_APP=wsgi.py && export FLASK_ENV=development
+$ flask run
+
+Features:
+---------
+- Landing Page (public)
+- Login
+- Register
+- Blog Crud
+- Blog View
+    - as guest
+    - as owner
+
+Extra Features:
+---------------
+- User generation via script
+- Can be accessed via api
+- Heroku deployment
+- Docker deployment
+=======================================================================
+
+To clarify:
+-------------
+1. how to add js/css assets
+=======================================================================
+
 / bootstrap template
-- database
-- login
-- authentication
-- csrf
-- forms
-- api / jwt
+/ database (postgre)
+/ authentication
+/ login
+/ wtforms  (STUDY FURTHER: re: validations, form setup)
+
+- management scripting (to generate dummy data)
+- pytest    (STUDY FURTHER)
+- deployment to heroku
+- docker deployment
+- api / jwt (STUDY FURTHER)
+
+- Create Utility scripts
+- how to Caching
+- how to use webpack
 ---------------------------------------------------------------
 
 Applied Features:
@@ -13,26 +51,24 @@ Applied Features:
     * https://flask-debugtoolbar.readthedocs.io/en/latest/
 * Environs
     * https://github.com/sloria/environs
-
-
-
-
-* Flask Login
-    * https://flask-login.readthedocs.io/en/latest/
-* Flask WTF (CSRF)
-    * https://flask-wtf.readthedocs.io/en/stable/
-* Flask webpack
-    * https://github.com/nickjj/flask-webpack
 * Flask Migrate
     * https://flask-migrate.readthedocs.io/en/latest/
-* Flask Caching
-    * https://pythonhosted.org/Flask-Caching/
 * Flask SQLAlchemy
     * https://flask-sqlalchemy.palletsprojects.com/en/2.x/
 * Flask Bcrypt
     * https://flask-bcrypt.readthedocs.io/en/latest/
+* Flask Login
+    * https://flask-login.readthedocs.io/en/latest/
+* Flask WTF (CSRF)
+    * https://flask-wtf.readthedocs.io/en/stable/
+
 * Click (for management scripting)
     * https://palletsprojects.com/p/click/
+* Flask Caching
+    * https://pythonhosted.org/Flask-Caching/
+* Flask webpack
+    * https://github.com/nickjj/flask-webpack
+
 * Pytest
     * https://pytest.org/en/latest/
 * -- Future Roadmap --

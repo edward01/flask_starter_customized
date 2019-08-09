@@ -1,0 +1,25 @@
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if request.endpoint == 'public.landing' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('public.landing') }}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item {% if request.endpoint == 'public.about' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('public.about') }}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Blogs</a>
+        </li>
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Welcome User</a>
+        </li> -->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('users.login') }}" class="btn btn-secondary my-2 my-sm-0 mr-2" type="button">Login</a>
+        <a href="{{ url_for('users.register') }}" class="btn btn-warning my-2 my-sm-0" type="button">Register</a>
+        {% else %}
+        <a href="{{ url_for('users.my_profile') }}" class="my-2 my-sm-0 mr-2 text-white">Welcome {{ current_user.username }}</a>
+        <a href="{{ url_for('users.logout') }}" class="btn btn-danger my-2 my-sm-0" type="button">Logout</a>
+        {% endif %}
+    </form>
+</div>
