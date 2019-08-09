@@ -96,6 +96,9 @@ def register_commands(app):
 
 def configure_logger(app):
     """Configure loggers."""
-    handler = logging.StreamHandler(sys.stdout)
-    if not app.logger.handlers:
-        app.logger.addHandler(handler)
+    # handler = logging.StreamHandler(sys.stdout)
+    # if not app.logger.handlers:
+    #     app.logger.addHandler(handler)
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.INFO)
+    app.logger.addHandler(stream_handler)
