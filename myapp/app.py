@@ -98,14 +98,10 @@ def register_commands(app):
 
 def configure_logger(app):
     """Configure loggers."""
-    # handler = logging.StreamHandler(sys.stdout)
-    # if not app.logger.handlers:
-    #     app.logger.addHandler(handler)
-
     if app.config['LOG_TO_STDOUT']:
-        stream_handler = logging.StreamHandler()
-        stream_handler.setLevel(logging.INFO)
-        app.logger.addHandler(stream_handler)
+        handler = logging.StreamHandler(sys.stdout)
+        if not app.logger.handlers:
+            app.logger.addHandler(handler)
     else:
         if not os.path.exists('logs'):
             os.mkdir('logs')
