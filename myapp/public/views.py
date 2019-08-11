@@ -10,13 +10,13 @@ from flask import (
     url_for,
 )
 
-blueprint = Blueprint("public", __name__)
+bp = Blueprint("public", __name__)
 
-@blueprint.route("/")
+@bp.route("/")
 def landing():
     return render_template('public/landing.html')
 
 
-@blueprint.route("/about/")
+@bp.route("/about/")
 def about():
     return render_template("public/about.html")

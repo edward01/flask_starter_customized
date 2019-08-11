@@ -37,7 +37,7 @@ To clarify:
 / login
 / wtforms  (STUDY FURTHER: re: validations, form setup)
 
-- deployment to heroku
+/ deployment to heroku
 - api / jwt (STUDY FURTHER)
 
 - management scripting (to generate dummy data)

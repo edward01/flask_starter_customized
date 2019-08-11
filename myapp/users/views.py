@@ -16,7 +16,7 @@ from ..utils import flash_errors
 from .forms import LoginForm, RegisterForm
 from .models import User
 
-blueprint = Blueprint("users", __name__, url_prefix='/auth')
+bp = Blueprint("users", __name__)
 
 
 @login_manager.user_loader
@@ -25,8 +25,8 @@ def load_user(user_id):
     return User.get_by_id(int(user_id))
 
 
-@blueprint.route("/")
-@blueprint.route("/login/", methods=["GET", "POST"])
+@bp.route("/")
+@bp.route("/login/", methods=["GET", "POST"])
 def login():
     """Login page."""
     form = LoginForm()
@@ -43,14 +43,14 @@ def login():
     return render_template("users/login.html", form=form)
 
 
-@blueprint.route("/my_profile/")
+@bp.route("/my_profile/")
 @login_required
 def my_profile():
     current_app.logger.info("---> %s" % (request.endpoint))
     return render_template("users/my_profile.html")
 
 
-@blueprint.route("/logout/")
+@bp.route("/logout/")
 @login_required
 def logout():
     """Logout."""
@@ -60,7 +60,7 @@ def logout():
     return redirect(url_for("public.landing"))
 
 
-@blueprint.route("/register/", methods=["GET", "POST"])
+@bp.route("/register/", methods=["GET", "POST"])
 def register():
     """Register new user."""
     current_app.logger.info("---> %s" % (request.endpoint))

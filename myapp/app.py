@@ -55,10 +55,10 @@ def register_extensions(app):
 
 def register_blueprints(app):
     """Register Flask blueprints."""
-    app.register_blueprint(public.views.blueprint)
-    app.register_blueprint(users.views.blueprint)
+    app.register_blueprint(public.views.bp)
+    app.register_blueprint(users.views.bp, url_prefix='/auth')
     #-- Custom blueprints
-    app.register_blueprint(posts.views.blueprint)
+    app.register_blueprint(posts.views.bp, url_prefix="/posts", static_folder="../static")
     return None
 
 

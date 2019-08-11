@@ -18,7 +18,7 @@ from ..users.models import User
 from .forms import PostForm
 from .models import Post
 
-blueprint = Blueprint("posts", __name__, url_prefix="/posts", static_folder="../static")
+bp = Blueprint("posts", __name__)
 
 
 @login_manager.user_loader
@@ -27,7 +27,7 @@ def load_user(user_id):
     return User.get_by_id(int(user_id))
 
 
-@blueprint.route("/", methods=["GET", "POST"])
+@bp.route("/", methods=["GET", "POST"])
 def index():
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
     form = PostForm()
@@ -48,7 +48,7 @@ def index():
     return render_template("posts/index.html", posts=posts)
 
 
-@blueprint.route("/add")
+@bp.route("/add")
 @login_required
 def add():
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
@@ -56,7 +56,7 @@ def add():
     return render_template("posts/add.html", form=form)
 
 
-@blueprint.route("/<int:post_id>", methods=["GET", "POST"])
+@bp.route("/<int:post_id>", methods=["GET", "POST"])
 @login_required
 def edit(post_id):
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
@@ -75,14 +75,14 @@ def edit(post_id):
     return render_template("posts/edit.html", form=form, post=post)
 
 
-@blueprint.route("/<int:post_id>/view")
+@bp.route("/<int:post_id>/view")
 def view(post_id):
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
     post = Post.query.get_or_404(post_id)
     return render_template("posts/view.html", post=post)
 
 
-@blueprint.route("/<int:post_id>/delete")
+@bp.route("/<int:post_id>/delete")
 def delete(post_id):
     current_app.logger.info("---> %s|%s" % (request.endpoint, request.method))
     post = Post.query.get_or_404(post_id)
