@@ -26,7 +26,7 @@ def load_user(user_id):
 
 
 @bp.route("/")
-@bp.route("/login/", methods=["GET", "POST"])
+@bp.route("/login", methods=["GET", "POST"])
 def login():
     """Login page."""
     form = LoginForm()
@@ -43,14 +43,14 @@ def login():
     return render_template("users/login.html", form=form)
 
 
-@bp.route("/my_profile/")
+@bp.route("/my_profile")
 @login_required
 def my_profile():
     current_app.logger.info("---> %s" % (request.endpoint))
     return render_template("users/my_profile.html")
 
 
-@bp.route("/logout/")
+@bp.route("/logout")
 @login_required
 def logout():
     """Logout."""
@@ -60,7 +60,7 @@ def logout():
     return redirect(url_for("public.landing"))
 
 
-@bp.route("/register/", methods=["GET", "POST"])
+@bp.route("/register", methods=["GET", "POST"])
 def register():
     """Register new user."""
     current_app.logger.info("---> %s" % (request.endpoint))

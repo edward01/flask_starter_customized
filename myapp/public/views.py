@@ -17,6 +17,6 @@ def landing():
     return render_template('public/landing.html')
 
 
-@bp.route("/about/")
+@bp.route("/about")
 def about():
     return render_template("public/about.html")
