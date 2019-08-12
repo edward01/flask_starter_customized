@@ -71,10 +71,8 @@ TEST_PATH = os.path.join(PROJECT_ROOT, "tests")
 @with_appcontext
 @click.argument("name")
 def view_user(name):
-    # to run: "$ flask view-user guest"
+    # to run: "$ flask view-user guest1"
     from .users.models import User
     print('hello %s' % name)
     user = User.get_by_id(1)
     print('Username: %s' % user.username)
-
-# TODO: using command in a group

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Posts section"""
+import click
 from flask import (
     Blueprint,
     current_app,
@@ -89,3 +90,13 @@ def delete(post_id):
     post.delete()
     flash("Blog deleted", "success")
     return redirect(url_for(".index"))
+
+
+# CLI operations
+@bp.cli.command('view')
+@click.argument('name')
+def cli_view(name):
+    # usage: "$ flask posts view guest1"
+    print('hello from post: %s' % name)
+    # post = Post.get_by_id(1)
+    # print('Post #1: %s' % post.title)
