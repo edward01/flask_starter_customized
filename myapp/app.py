@@ -17,7 +17,7 @@ from .extensions import (
 #     cache,
 #     webpack,
 )
-from . import public, users #, commands
+from . import public, users, commands
 #-- Custom blueprints
 from . import (
     posts
@@ -93,6 +93,7 @@ def register_commands(app):
     """Register Click commands."""
     # app.cli.add_command(commands.test)
     # app.cli.add_command(commands.lint)
+    app.cli.add_command(commands.view_user)
     return None
 
 
